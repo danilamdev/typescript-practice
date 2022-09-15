@@ -1,4 +1,4 @@
-import add, {addstr} from "./functions";
+import { addstr } from "./functions";
 
-console.log(addstr('micho','tito','negro','cabezon'))
+console.log(addstr('micho', 'tito', 'negro', 'cabezon'))
 

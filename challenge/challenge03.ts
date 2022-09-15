@@ -1,4 +1,4 @@
-// @ts-nocheck  
+// @ts-nocheck
 
 type FilterFunction<T> = (data: T[keyof T]) => Boolean
 type Filters<T> = Record<keyof T, FilterFunction<T>[]>
@@ -25,7 +25,10 @@ class EventProcessor<T extends {}> {
       }
     }
     if (allowEvent) {
-      let mappedData = { ...data, }
+      let mappedData = { ...data }
+
+      console.log('data', data)
+
       for (const map of this.maps[eventName] ?? []) {
         mappedData = <T[K]>map(mappedData)
       }
@@ -33,12 +36,13 @@ class EventProcessor<T extends {}> {
     }
   }
 
-  addFilter<K extends keyof T>(eventName: K, filter: (data: T[K]) => boolean): void {
-    this.filters[eventName as string] ||= []
-    this.filters[eventName as string].push(filter)
+  addFilter<K extends keyof T>(eventName: K, filter: (data: T[keyof T]) => boolean): void {
+    this.filters[eventName] ||= []
+    this.filters[eventName].push(filter)
   }
 
   addMap<K extends keyof T>(eventName: K, map: (data: T[K]) => T[K]): void {
+
     this.maps[eventName] ||= []
     this.maps[eventName].push(map)
   }
@@ -59,6 +63,7 @@ const uep = new UserEventProcessor();
 
 uep.addFilter("login", ({ user }) => Boolean(user));
 
+
 uep.addMap("login", (data) => ({
   ...data,
   hasSession: Boolean(data.user && data.name),
@@ -68,6 +73,7 @@ uep.handleEvent("login", {
   user: 'jack',
   name: "jack",
 });
+
 uep.handleEvent("login", {
   user: "tom",
   name: "tomas",

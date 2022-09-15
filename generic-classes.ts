@@ -9,6 +9,7 @@ interface Persistable {
 }
 
 type DBconstrainType = string | number | symbol
+
 class InMemoryDatabase<T, K extends DBconstrainType> implements Database<T, K> {
   protected db: Record<K, T> = {} as Record<K, T>
 
