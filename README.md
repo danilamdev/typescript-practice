@@ -34,6 +34,9 @@ just change in __package.json__ the name of the file in the Dev script
 * overloads
 * readonly
 * utility
+* utility2
+* conditionals
+*conditionals-redone
 
 ***
 
