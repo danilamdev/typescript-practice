@@ -36,7 +36,7 @@ just change in __package.json__ the name of the file in the Dev script
 * utility
 * utility2
 * conditionals
-*conditionals-redone
+* conditionals-redone
 
 ***
 
@@ -44,8 +44,4 @@ just change in __package.json__ the name of the file in the Dev script
 * challenge 02
 * challenge 03
 
-<<<<<<< HEAD
 Thanks to [Jack Harrington](https://github.com/jherr) for teaching us and sharing all the knowledge! and free!, and thank you for being an inspiration to all the developers! 
-=======
-Thanks to [Jack Harrington](https://github.com/jherr) for teaching us and sharing all the knowledge! and free!, he is such an inspiration for all devs! 
->>>>>>> bd318f045b36f26645b430610e1f06c999d2a5a9
